@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 # 1. Provision an AWS EC2 Server
-resource "aws_instance "my_server"" {
+resource "aws_instance "my_server" {
   ami           = "ami-083cf4acad89c8905" # Ubuntu 22.04 LTS AMI (adjust if needed)
   instance_type = "t2.micro"
 
