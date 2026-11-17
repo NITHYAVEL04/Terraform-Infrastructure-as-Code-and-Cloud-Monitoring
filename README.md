@@ -18,21 +18,23 @@ An end-to-end Infrastructure-as-Code (IaC) and automated monitoring pipeline. Pr
 1. **Automated CI/CD Provisioning (GitHub Actions + Terraform):**
    Pushing changes to the `main` branch automatically triggers a GitHub Actions workflow (`terraform.yml`). Using encrypted GitHub Secrets for AWS authentication, the runner executes `terraform init` and `terraform apply` to build the infrastructure remotely.
 
-   *[📸 SCREENSHOT 1: Insert<img width="932" height="642" alt="Screenshot 2026-11-17 212321" src="https://github.com/user-attachments/assets/f2c43b50-84aa-4632-a5bb-cacfedae7b81" />
- screenshot of GitHub Actions workflow showing green checkmarks and `Apply complete! Resources: 2 added` with the output `instance_ip`]*
+   <img width="932" height="642" alt="Screenshot 2026-11-17 212321" src="https://github.com/user-attachments/assets/3ea91245-d458-42c3-b723-05566f0594a7" />
+
    *Title Card:* `GitHub Actions Automated Terraform Apply`
 
 2. **Cloud Server Provisioning (AWS EC2):**
    Terraform automatically provisions a `t2.micro` Ubuntu instance (`Terraform-DevOps-Server`) in `us-east-1` and outputs its public IP address.
 
-   *[📸 SCREENSHOT 2: Insert screenshot of AWS EC2 Console showing `Terraform-DevOps-Server` in `Running` state]*
+  <img width="1743" height="710" alt="Screenshot 2026-11-17 212418" src="https://github.com/user-attachments/assets/2c6658c9-cf42-4537-af4a-d5eb3004ec75" />
+
    *Title Card:* `Provisioned AWS EC2 Instance`
 
 3. **Proactive Monitoring & Stress Testing (AWS CloudWatch):**
-   Alongside the server, Terraform deploys a CloudWatch Metric Alarm (`high-cpu-utilization`) configured to trigger when average CPU usage exceeds 80% across two consecutive 2-minute periods. To validate the setup, the instance was stress-tested using the Linux `stress` utility until the alarm actively fired.
+   Alongside the server, Terraform deploys a CloudWatch Metric Alarm (`high-cpu-utilization`) configured to trigger when average CPU usage exceeds 80% across two consecutive 2-minute periods. tress` utility until the alarm actively fired.
 
-   *[📸 SCREENSHOT 3: Insert screenshot of AWS CloudWatch Alarm in the red `In alarm` state with the CPU graph spiking above the 80% threshold]*
-   *Title Card:* `Triggered CloudWatch High-CPU Alarm`
+  <img width="1851" height="863" alt="Screenshot 2026-11-17 212557" src="https://github.com/user-attachments/assets/fab472e8-5d7d-4c82-a4dc-11593e3f717f" />
+
+   *Title Card:* `CloudWatch High-CPU Alarm`
 
 ---
 
