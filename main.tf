@@ -23,7 +23,7 @@ resource "aws_instance "my_server"" {
 }
 
 # 2. Set up CloudWatch Monitoring Alarm for High CPU Usage
-resource "aws_cloudwatch_metric_alarm "cpu_alarm"" {
+resource "aws_cloudwatch_metric_alarm" "cpu_alarm"" {
   alarm_name          = "high-cpu-utilization"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = 2
